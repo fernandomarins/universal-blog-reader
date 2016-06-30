@@ -11,7 +11,6 @@ import UIKit
 class MainViewController: UITableViewController,
     MWFeedParserDelegate {
 
-    var items = [MWFeedItem]()
     var url: String?
     
     override func viewWillAppear(animated: Bool) {
@@ -29,7 +28,7 @@ class MainViewController: UITableViewController,
     
     func feedParserDidStart(parser: MWFeedParser) {
         SVProgressHUD.show()
-        items = [MWFeedItem]()
+        Posts.sharedInstace.items = [MWFeedItem]()
     }
     
     func feedParserDidFinish(parser: MWFeedParser) {
@@ -43,7 +42,7 @@ class MainViewController: UITableViewController,
     }
     
     func feedParser(parser: MWFeedParser, didParseFeedItem item: MWFeedItem) {
-        items.append(item)
+        Posts.sharedInstace.items.append(item)
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -55,7 +54,7 @@ class MainViewController: UITableViewController,
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        return Posts.sharedInstace.items.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -65,7 +64,7 @@ class MainViewController: UITableViewController,
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let item = items[indexPath.row] as MWFeedItem
+        let item = Posts.sharedInstace.items[indexPath.row] as MWFeedItem
         let con = KINWebBrowserViewController()
         let URL = NSURL(string: item.link)
         con.loadURL(URL)
@@ -73,7 +72,7 @@ class MainViewController: UITableViewController,
     }
     
     func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
-        let item = items[indexPath.row] as MWFeedItem
+        let item = Posts.sharedInstace.items[indexPath.row] as MWFeedItem
         cell.textLabel?.text = item.title
         cell.textLabel?.font = UIFont.systemFontOfSize(14.0)
         cell.textLabel?.numberOfLines = 0

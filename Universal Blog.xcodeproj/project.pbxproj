@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		555083CB1D231A650005F035 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555083CA1D231A650005F035 /* SettingsViewController.swift */; };
 		557955C61D258DFC00032C56 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557955C51D258DFC00032C56 /* Extensions.swift */; };
+		557955C81D259AB800032C56 /* Posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557955C71D259AB800032C56 /* Posts.swift */; };
 		55ECD7241D23114E00A47BD2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ECD7231D23114E00A47BD2 /* AppDelegate.swift */; };
 		55ECD7261D23114E00A47BD2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ECD7251D23114E00A47BD2 /* MainViewController.swift */; };
 		55ECD7291D23114E00A47BD2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55ECD7271D23114E00A47BD2 /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		555083CA1D231A650005F035 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		557955C51D258DFC00032C56 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		557955C71D259AB800032C56 /* Posts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Posts.swift; sourceTree = "<group>"; };
 		55ECD7201D23114E00A47BD2 /* Universal Blog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Universal Blog.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		55ECD7231D23114E00A47BD2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55ECD7251D23114E00A47BD2 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				55ECD7231D23114E00A47BD2 /* AppDelegate.swift */,
 				555083CA1D231A650005F035 /* SettingsViewController.swift */,
 				55ECD7251D23114E00A47BD2 /* MainViewController.swift */,
+				557955C71D259AB800032C56 /* Posts.swift */,
 				55ECD7271D23114E00A47BD2 /* Main.storyboard */,
 				557955C51D258DFC00032C56 /* Extensions.swift */,
 				55ECD72D1D23114E00A47BD2 /* Assets.xcassets */,
@@ -223,6 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				557955C61D258DFC00032C56 /* Extensions.swift in Sources */,
+				557955C81D259AB800032C56 /* Posts.swift in Sources */,
 				55ECD72C1D23114E00A47BD2 /* Universal_Blog.xcdatamodeld in Sources */,
 				55ECD7261D23114E00A47BD2 /* MainViewController.swift in Sources */,
 				55ECD7241D23114E00A47BD2 /* AppDelegate.swift in Sources */,
