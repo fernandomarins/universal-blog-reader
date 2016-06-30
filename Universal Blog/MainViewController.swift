@@ -8,18 +8,21 @@
 
 import UIKit
 
-class MainViewController: UITableViewController, MWFeedParserDelegate {
+class MainViewController: UITableViewController,
+    MWFeedParserDelegate {
 
     var items = [MWFeedItem]()
+    var url: String?
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         request()
+        print(url)
     }
      
     func request() {
-        let URL = NSURL(string: "https://feeds.feedburner.com/TheiPhoneBlog")
-        let feedParser = MWFeedParser(feedURL: URL);
+        let URL = NSURL(string: url!)
+        let feedParser = MWFeedParser(feedURL: URL)
         feedParser.delegate = self
         feedParser.parse()
     }
@@ -41,6 +44,7 @@ class MainViewController: UITableViewController, MWFeedParserDelegate {
     
     func feedParser(parser: MWFeedParser, didParseFeedItem item: MWFeedItem) {
         items.append(item)
+        print(items)
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -52,7 +56,7 @@ class MainViewController: UITableViewController, MWFeedParserDelegate {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.items.count
+        return items.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -62,7 +66,7 @@ class MainViewController: UITableViewController, MWFeedParserDelegate {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let item = self.items[indexPath.row] as MWFeedItem
+        let item = items[indexPath.row] as MWFeedItem
         let con = KINWebBrowserViewController()
         let URL = NSURL(string: item.link)
         con.loadURL(URL)
@@ -70,7 +74,7 @@ class MainViewController: UITableViewController, MWFeedParserDelegate {
     }
     
     func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
-        let item = self.items[indexPath.row] as MWFeedItem
+        let item = items[indexPath.row] as MWFeedItem
         cell.textLabel?.text = item.title
         cell.textLabel?.font = UIFont.systemFontOfSize(14.0)
         cell.textLabel?.numberOfLines = 0
@@ -79,6 +83,13 @@ class MainViewController: UITableViewController, MWFeedParserDelegate {
         let imgURL: NSURL? = NSURL(string: projectURL + "/cover_image?style=200x200#")
         cell.imageView?.contentMode = UIViewContentMode.ScaleAspectFit
         cell.imageView?.setImageWithURL(imgURL!, placeholderImage: UIImage(named: "logo.png"))
+    }
+    
+    
+    @IBAction func cancelAction(sender: AnyObject) {
+        
+        navigationController?.popToRootViewControllerAnimated(true)
+        
     }
 
 
