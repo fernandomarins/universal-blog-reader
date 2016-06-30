@@ -8,7 +8,8 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+class SettingsViewController: UIViewController,
+    UITextFieldDelegate {
     
     @IBOutlet weak var urlTextField: UITextField!
     
@@ -16,15 +17,25 @@ class SettingsViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "seguePresentMainVC" {
             let controller = segue.destinationViewController as! MainViewController
-            controller.url = urlTextField.text!
+            if let safeURL = urlTextField.text {
+                if verifyUrl(safeURL) {
+                    controller.url = safeURL
+                } else {
+                    alertViewWithTitle("Attention!", message: "The URL entered is not valid!")
+                }
+            } else {
+                alertViewWithTitle("Attention!", message: "Please add an address!")
+            }
         }
     }
-    
+        
     @IBAction func confirmUrl(sender: AnyObject) {
-        
         performSegueWithIdentifier("seguePresentMainVC", sender: self)
-        
     }
-
-
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        confirmUrl(self)
+        return true
+    }
 }

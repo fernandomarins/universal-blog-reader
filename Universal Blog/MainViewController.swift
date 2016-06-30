@@ -19,7 +19,7 @@ class MainViewController: UITableViewController,
         request()
         print(url)
     }
-     
+    
     func request() {
         let URL = NSURL(string: url!)
         let feedParser = MWFeedParser(feedURL: URL)
@@ -44,7 +44,6 @@ class MainViewController: UITableViewController,
     
     func feedParser(parser: MWFeedParser, didParseFeedItem item: MWFeedItem) {
         items.append(item)
-        print(items)
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -85,13 +84,5 @@ class MainViewController: UITableViewController,
         cell.imageView?.setImageWithURL(imgURL!, placeholderImage: UIImage(named: "logo.png"))
     }
     
-    
-    @IBAction func cancelAction(sender: AnyObject) {
-        
-        navigationController?.popToRootViewControllerAnimated(true)
-        
-    }
-
-
 }
 
