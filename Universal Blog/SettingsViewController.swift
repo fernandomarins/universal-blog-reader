@@ -34,16 +34,15 @@ class SettingsViewController: UIViewController,
             if verifyUrl(safeURL) {
                 Server.sharedInstace.request(safeURL)
             } else {
-                dispatch_async(dispatch_get_main_queue(), {
+                performUIUpdatesOnMain({ 
                     self.alertViewWithTitle("Attention!", message: "The URL entered is not valid!")
                 })
-                
             }
+            
         } else {
-            dispatch_async(dispatch_get_main_queue(), {
+            performUIUpdatesOnMain({ 
                 self.alertViewWithTitle("Attention!", message: "Please add an address!")
             })
-            
         }
     }
     
