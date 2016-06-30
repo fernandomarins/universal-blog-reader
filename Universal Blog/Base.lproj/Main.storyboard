@@ -28,7 +28,9 @@
                             <outlet property="delegate" destination="qcj-g2-8St" id="o7s-c5-H3Y"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="awH-lp-Rh7"/>
+                    <navigationItem key="navigationItem" id="awH-lp-Rh7">
+                        <barButtonItem key="backBarButtonItem" title="Voltar" id="gjo-Qy-67m"/>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ebL-fM-bU3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -48,18 +50,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="RSS feed from your favorite blog" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kCu-Oa-7te">
-                                <rect key="frame" x="173.5" y="288" width="253" height="24"/>
+                                <rect key="frame" x="174" y="288" width="253" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="URL" returnKeyType="go"/>
                                 <connections>
                                     <outlet property="delegate" destination="Y5b-Hq-weZ" id="aSO-F7-xSS"/>
                                 </connections>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="672-c9-gyj">
+                                <rect key="frame" x="266" y="335" width="68" height="30"/>
+                                <state key="normal" title="CONFIRM">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="makeRequest:" destination="Y5b-Hq-weZ" eventType="touchUpInside" id="OqV-1q-YX4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="kCu-Oa-7te" firstAttribute="centerX" secondItem="DOK-sm-tEt" secondAttribute="centerX" id="1hv-ef-6iC"/>
                             <constraint firstItem="kCu-Oa-7te" firstAttribute="centerY" secondItem="DOK-sm-tEt" secondAttribute="centerY" id="HcH-Xr-oZL"/>
+                            <constraint firstItem="672-c9-gyj" firstAttribute="top" secondItem="kCu-Oa-7te" secondAttribute="bottom" constant="23" id="Ism-HA-acn"/>
+                            <constraint firstItem="672-c9-gyj" firstAttribute="centerX" secondItem="kCu-Oa-7te" secondAttribute="centerX" id="Uf2-9a-odD"/>
+                            <constraint firstItem="rFq-fa-AEZ" firstAttribute="top" secondItem="672-c9-gyj" secondAttribute="bottom" constant="235" id="dph-O4-lbV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Db2-dh-awl">

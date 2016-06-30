@@ -11,7 +11,7 @@ import UIKit
 
 class Server: NSObject,
     MWFeedParserDelegate  {
-    
+
     func request(url: String) {
         let URL = NSURL(string: url)
         let feedParser = MWFeedParser(feedURL: URL)

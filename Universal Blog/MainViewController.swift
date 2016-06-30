@@ -15,16 +15,12 @@ class MainViewController: UITableViewController,
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        Server.sharedInstace.request(url!)
         title = "Posts"
+        tableView.reloadData()
     }
        
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 100
-    }
-    
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -51,10 +47,10 @@ class MainViewController: UITableViewController,
         cell.textLabel?.font = UIFont.systemFontOfSize(14.0)
         cell.textLabel?.numberOfLines = 0
         
-        let projectURL = item.link.componentsSeparatedByString("?")[0]
-        let imgURL: NSURL? = NSURL(string: projectURL + "/cover_image?style=200x200#")
-        cell.imageView?.contentMode = UIViewContentMode.ScaleAspectFit
-        cell.imageView?.setImageWithURL(imgURL!, placeholderImage: UIImage(named: "logo.png"))
+//        let projectURL = item.link.componentsSeparatedByString("?")[0]
+//        let imgURL: NSURL? = NSURL(string: projectURL + "/cover_image?style=200x200#")
+//        cell.imageView?.contentMode = UIViewContentMode.ScaleAspectFit
+//        cell.imageView?.setImageWithURL(imgURL!, placeholderImage: UIImage(named: "logo.png"))
     }
     
 }

@@ -20,41 +20,46 @@ class SettingsViewController: UIViewController,
     // Mark: - Lifecycle methods
     override func viewDidLoad() {
         hideKeyboardWhenTappedAround()
+        sampleURL()
     }
     
-    // Mark: - Methods
+    func sampleURL() {
+        urlTextField.text = "https://www.wantedly.com/projects.xml"
+    }
+    
+    // Mark: - Private methods
+    private func request() {
+        
+        if let safeURL = urlTextField.text {
+            if verifyUrl(safeURL) {
+                Server.sharedInstace.request(safeURL)
+            } else {
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.alertViewWithTitle("Attention!", message: "The URL entered is not valid!")
+                })
+                
+            }
+        } else {
+            dispatch_async(dispatch_get_main_queue(), {
+                self.alertViewWithTitle("Attention!", message: "Please add an address!")
+            })
+            
+        }
+    }
+    
+    // Mark: - Textfield Delegate Methods
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         confirmUrl(self)
         return true
     }
     
-    // MARK: - Navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        if segue.identifier == segueToMain {
-            let controller = segue.destinationViewController as! MainViewController
-            if let safeURL = urlTextField.text {
-                if verifyUrl(safeURL) {
-                    controller.url = safeURL
-                } else {
-                    dispatch_async(dispatch_get_main_queue(), { 
-                        self.alertViewWithTitle("Attention!", message: "The URL entered is not valid!")
-                    })
-                    
-                }
-            } else {
-                dispatch_async(dispatch_get_main_queue(), { 
-                    self.alertViewWithTitle("Attention!", message: "Please add an address!")
-                })
-                
-            }
-        }
-    }
-    
     // Mark: - Actions
     @IBAction func confirmUrl(sender: AnyObject) {
         performSegueWithIdentifier(segueToMain, sender: self)
     }
-
+    
+    @IBAction func makeRequest(sender: AnyObject) {
+        request()
+    }
 }
