@@ -8,6 +8,10 @@
 
 // Class created to store posts
 class Posts {
+    
+    // Array of posts
     var items = [MWFeedItem]()
+    
+    // Singleton
     static let sharedInstace = Posts()
 }

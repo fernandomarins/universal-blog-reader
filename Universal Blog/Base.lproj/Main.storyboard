@@ -72,7 +72,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="urlTextField" destination="kCu-Oa-7te" id="Uds-Eh-rK9"/>
-                        <segue destination="qcj-g2-8St" kind="show" identifier="seguePresentMainVC" id="SGW-ws-dOE"/>
+                        <segue destination="qcj-g2-8St" kind="show" identifier="toMainVC" id="SGW-ws-dOE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Vc-gK-LXs" userLabel="First Responder" sceneMemberID="firstResponder"/>

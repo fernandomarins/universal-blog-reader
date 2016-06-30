@@ -15,36 +15,10 @@ class MainViewController: UITableViewController,
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        request()
-        print(url)
+        Server.sharedInstace.request(url!)
+        title = "Posts"
     }
-    
-    func request() {
-        let URL = NSURL(string: url!)
-        let feedParser = MWFeedParser(feedURL: URL)
-        feedParser.delegate = self
-        feedParser.parse()
-    }
-    
-    func feedParserDidStart(parser: MWFeedParser) {
-        SVProgressHUD.show()
-        Posts.sharedInstace.items = [MWFeedItem]()
-    }
-    
-    func feedParserDidFinish(parser: MWFeedParser) {
-        SVProgressHUD.dismiss()
-        tableView.reloadData()
-    }
-    
-    
-    func feedParser(parser: MWFeedParser, didParseFeedInfo info: MWFeedInfo) {
-        title = info.title
-    }
-    
-    func feedParser(parser: MWFeedParser, didParseFeedItem item: MWFeedItem) {
-        Posts.sharedInstace.items.append(item)
-    }
-    
+       
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 100
     }

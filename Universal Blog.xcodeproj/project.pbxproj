@@ -10,6 +10,7 @@
 		555083CB1D231A650005F035 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555083CA1D231A650005F035 /* SettingsViewController.swift */; };
 		557955C61D258DFC00032C56 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557955C51D258DFC00032C56 /* Extensions.swift */; };
 		557955C81D259AB800032C56 /* Posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557955C71D259AB800032C56 /* Posts.swift */; };
+		557955CD1D259FAC00032C56 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557955CC1D259FAC00032C56 /* Server.swift */; };
 		55ECD7241D23114E00A47BD2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ECD7231D23114E00A47BD2 /* AppDelegate.swift */; };
 		55ECD7261D23114E00A47BD2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ECD7251D23114E00A47BD2 /* MainViewController.swift */; };
 		55ECD7291D23114E00A47BD2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55ECD7271D23114E00A47BD2 /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 		555083CA1D231A650005F035 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		557955C51D258DFC00032C56 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		557955C71D259AB800032C56 /* Posts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Posts.swift; sourceTree = "<group>"; };
+		557955CC1D259FAC00032C56 /* Server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
 		55ECD7201D23114E00A47BD2 /* Universal Blog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Universal Blog.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		55ECD7231D23114E00A47BD2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55ECD7251D23114E00A47BD2 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +68,33 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		557955C91D259BDA00032C56 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				557955C71D259AB800032C56 /* Posts.swift */,
+				557955CC1D259FAC00032C56 /* Server.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		557955CA1D259BE200032C56 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				555083CA1D231A650005F035 /* SettingsViewController.swift */,
+				55ECD7251D23114E00A47BD2 /* MainViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		557955CB1D259BEE00032C56 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				55ECD7271D23114E00A47BD2 /* Main.storyboard */,
+				55ECD72F1D23114E00A47BD2 /* LaunchScreen.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		55ECD7171D23114E00A47BD2 = {
 			isa = PBXGroup;
 			children = (
@@ -88,13 +117,11 @@
 			isa = PBXGroup;
 			children = (
 				55ECD7231D23114E00A47BD2 /* AppDelegate.swift */,
-				555083CA1D231A650005F035 /* SettingsViewController.swift */,
-				55ECD7251D23114E00A47BD2 /* MainViewController.swift */,
-				557955C71D259AB800032C56 /* Posts.swift */,
-				55ECD7271D23114E00A47BD2 /* Main.storyboard */,
 				557955C51D258DFC00032C56 /* Extensions.swift */,
+				557955C91D259BDA00032C56 /* Model */,
+				557955CB1D259BEE00032C56 /* View */,
+				557955CA1D259BE200032C56 /* Controller */,
 				55ECD72D1D23114E00A47BD2 /* Assets.xcassets */,
-				55ECD72F1D23114E00A47BD2 /* LaunchScreen.storyboard */,
 				55ECD7321D23114E00A47BD2 /* Info.plist */,
 				55ECD72A1D23114E00A47BD2 /* Universal_Blog.xcdatamodeld */,
 				55ECD7391D23138700A47BD2 /* Universal-Blog-Bridging-Header.h */,
@@ -225,6 +252,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				557955CD1D259FAC00032C56 /* Server.swift in Sources */,
 				557955C61D258DFC00032C56 /* Extensions.swift in Sources */,
 				557955C81D259AB800032C56 /* Posts.swift in Sources */,
 				55ECD72C1D23114E00A47BD2 /* Universal_Blog.xcdatamodeld in Sources */,

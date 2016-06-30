@@ -10,7 +10,7 @@ import Foundation
 
 extension UIViewController {
     
-    func alertViewWithTitle(title:String, message:String) {
+    func alertViewWithTitle(title: String, message: String) {
         
         // UIAlertController
         let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
@@ -18,11 +18,11 @@ extension UIViewController {
         presentViewController(alert, animated: true, completion: nil)
     }
     
-    func errorAlert(message:String) {
+    func errorAlert(message: String) {
         alertViewWithTitle("Atenção", message: message)
     }
     
-    func successAlert(message:String) {
+    func successAlert(message: String) {
         alertViewWithTitle("Sucesso", message: message)
     }
     
@@ -37,5 +37,14 @@ extension UIViewController {
         }
         
         return false
+    }
+    
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
